@@ -127,7 +127,7 @@ func (youtube Youtube) Playlist(input string) (*[]PlaylistVideo, error) {
 }*/
 
 func (youtube Youtube) Search(query string) ([]YTSearchContent, error) {
-	resp, err := http.Get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + query + "&type=video&key=" + "AIzaSyDa38B307tfk6sf0RzY4eY0cB3elgdVaWs")
+	resp, err := http.Get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + query + "&type=video&key=" + youtube.Conf.YtbToken)
 	if err != nil {
 		return nil, err
 	}
